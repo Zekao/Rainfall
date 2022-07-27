@@ -1,4 +1,4 @@
-### LEVEL 01
+# LEVEL 01
 
 As we see Address Space Layout Randomization (ASLR) is disable. It is a security mechanism against buffer overflows.
 
@@ -12,7 +12,7 @@ For all the next step in the next level we will analyze our file with gdb and wi
 set disassembly-flavor intel
 ```
 
-# TIPS
+### TIPS
 This command set the intel syntax by default in gdb but in Rainfall we cannot modify the gdbinit file.
 ```bash
 echo 'set disassembly-flavor intel' > ~/.gdbinit
