@@ -1,4 +1,4 @@
-# gd writeup
+# gdb writeup
 
 We can see that we have a function p in our executable
 ```as
