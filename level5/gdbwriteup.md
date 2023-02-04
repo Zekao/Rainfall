@@ -1,6 +1,6 @@
 # gdb explain
 
-Fist, we will disass the main
+First, we will disass the main
 
 ```as
 //Dump of assembler code for function main:
