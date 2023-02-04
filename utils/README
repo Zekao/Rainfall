@@ -1,0 +1,5 @@
+# GDB Writeup
+
+```bash
+set disassembly-flavor intel
+```
